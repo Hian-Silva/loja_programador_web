@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const exphbs = require('express-handlebars')
+const PORT = process.env.PORT || 3000
 
 //Conexão combanco de dados
 const connection = require('./mysqlFile')
@@ -101,6 +102,6 @@ app.post('/promos', (req, res) => {
   }
 })
 
-app.listen(process.env.PORT || 3000, function(){
-  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+app.listen(PORT, () => {
+  console.log(`Backend executando na porta ${PORT}`)
 })
